@@ -14,12 +14,18 @@ import {
   Home,
   User,
   Camera,
+  MapPin,
+  Pencil,
+  BookOpen,
 } from 'lucide-react';
 import { useAnatomyStore } from '../../store/useAnatomyStore';
+import { useAnnotationStore } from '../../store/useAnnotationStore';
 import { ToolType, LayerType, MuscleLevel } from '../../types/anatomy';
 
 const tools: { id: ToolType; label: string; icon: React.ElementType }[] = [
   { id: 'select', label: '选择', icon: MousePointer },
+  { id: 'annotate', label: '标注', icon: MapPin },
+  { id: 'draw', label: '手绘', icon: Pencil },
   { id: 'scalpel', label: '解剖刀', icon: Scissors },
   { id: 'rotate', label: '旋转', icon: RotateCcw },
   { id: 'pan', label: '平移', icon: Move },
@@ -53,6 +59,8 @@ export const LeftPanel = () => {
   const setBoneIsolated = useAnatomyStore((state) => state.setBoneIsolated);
   const resetLayers = useAnatomyStore((state) => state.resetLayers);
   const clearCutPlanes = useAnatomyStore((state) => state.clearCutPlanes);
+  const setShowNotesPanel = useAnnotationStore((state) => state.setShowNotesPanel);
+  const showNotesPanel = useAnnotationStore((state) => state.showNotesPanel);
 
   const [expandedSection, setExpandedSection] = useState<string | null>('tools');
 
@@ -92,7 +100,7 @@ export const LeftPanel = () => {
           </button>
           {expandedSection === 'tools' && (
             <div className="px-3 pb-3">
-              <div className="grid grid-cols-5 gap-1">
+              <div className="grid grid-cols-4 gap-1">
                 {tools.map((tool) => {
                   const Icon = tool.icon;
                   const isActive = currentTool === tool.id;
@@ -265,7 +273,18 @@ export const LeftPanel = () => {
         </div>
       </div>
 
-      <div className="p-3 border-t border-slate-700/50">
+      <div className="p-3 border-t border-slate-700/50 space-y-2">
+        <button
+          onClick={() => setShowNotesPanel(!showNotesPanel)}
+          className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-all text-sm ${
+            showNotesPanel
+              ? 'bg-purple-500/20 text-purple-400 border border-purple-500/50'
+              : 'bg-slate-700/50 hover:bg-slate-700 text-slate-300 hover:text-white'
+          }`}
+        >
+          <BookOpen size={14} />
+          学习笔记
+        </button>
         <button
           onClick={handleReset}
           className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-700/50 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg transition-all text-sm"

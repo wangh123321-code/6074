@@ -4,6 +4,8 @@ import { LeftPanel } from './components/UI/LeftPanel';
 import { RightPanel } from './components/UI/RightPanel';
 import { BottomBar } from './components/UI/BottomBar';
 import { LoadingScreen } from './components/UI/LoadingScreen';
+import { NotesPanel } from './components/Annotation/NotesPanel';
+import { FPSMonitor } from './components/UI/FPSMonitor';
 
 export default function App() {
   return (
@@ -17,7 +19,9 @@ export default function App() {
       <TopNavbar />
       <LeftPanel />
       <RightPanel />
+      <NotesPanel />
       <BottomBar />
+      <FPSMonitor />
 
       <div className="absolute bottom-4 right-4 text-slate-500 text-xs z-20">
         <p>v1.0.0 | 支持 Chrome 90+/Edge 90+/Firefox 88+/Safari 14+</p>

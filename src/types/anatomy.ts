@@ -1,6 +1,6 @@
 export type LayerType = 'skin' | 'muscle' | 'bone' | 'organ' | 'vessel';
 
-export type ToolType = 'select' | 'scalpel' | 'rotate' | 'pan' | 'zoom';
+
 
 export type MuscleLevel = 0 | 1 | 2 | 3;
 
@@ -86,3 +86,99 @@ export const CAMERA_PRESETS = {
 };
 
 export type CameraPresetKey = keyof typeof CAMERA_PRESETS;
+
+export interface CameraView {
+  position: [number, number, number];
+  target: [number, number, number];
+}
+
+export interface AnnotationPoint {
+  id: string;
+  organId: string | null;
+  position: [number, number, number];
+  screenPosition?: { x: number; y: number };
+  text: string;
+  color: string;
+  createdAt: number;
+  cameraView: CameraView;
+  drawingData?: DrawingData;
+}
+
+export interface DrawingPoint {
+  x: number;
+  y: number;
+}
+
+export interface DrawingStroke {
+  points: DrawingPoint[];
+  color: string;
+  lineWidth: number;
+}
+
+export interface DrawingData {
+  strokes: DrawingStroke[];
+  width: number;
+  height: number;
+}
+
+export interface Note {
+  id: string;
+  title: string;
+  content: string;
+  organId: string | null;
+  tags: string[];
+  annotationIds: string[];
+  createdAt: number;
+  updatedAt: number;
+}
+
+export type ToolType = 'select' | 'scalpel' | 'rotate' | 'pan' | 'zoom' | 'annotate' | 'draw';
+
+export interface AnnotationState {
+  annotations: AnnotationPoint[];
+  notes: Note[];
+  selectedAnnotationId: string | null;
+  selectedNoteId: string | null;
+  isAddingAnnotation: boolean;
+  isDrawing: boolean;
+  drawingColor: string;
+  drawingLineWidth: number;
+  noteFilter: {
+    organId: string | null;
+    searchText: string;
+    tags: string[];
+  };
+  showNotesPanel: boolean;
+}
+
+export interface AnnotationActions {
+  addAnnotation: (annotation: Omit<AnnotationPoint, 'id' | 'createdAt'>) => void;
+  updateAnnotation: (id: string, updates: Partial<AnnotationPoint>) => void;
+  deleteAnnotation: (id: string) => void;
+  selectAnnotation: (id: string | null) => void;
+  setIsAddingAnnotation: (adding: boolean) => void;
+  setIsDrawing: (drawing: boolean) => void;
+  setDrawingColor: (color: string) => void;
+  setDrawingLineWidth: (width: number) => void;
+  addNote: (note: Omit<Note, 'id' | 'createdAt' | 'updatedAt'>) => void;
+  updateNote: (id: string, updates: Partial<Note>) => void;
+  deleteNote: (id: string) => void;
+  selectNote: (id: string | null) => void;
+  setNoteFilter: (filter: Partial<AnnotationState['noteFilter']>) => void;
+  setShowNotesPanel: (show: boolean) => void;
+  jumpToAnnotation: (annotationId: string) => void;
+}
+
+export const DRAWING_COLORS = [
+  '#ef4444',
+  '#f97316',
+  '#eab308',
+  '#22c55e',
+  '#06b6d4',
+  '#3b82f6',
+  '#8b5cf6',
+  '#ec4899',
+  '#ffffff',
+];
+
+export const DRAWING_LINE_WIDTHS = [1, 2, 3, 4, 6, 8];
