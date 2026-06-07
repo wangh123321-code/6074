@@ -1,0 +1,82 @@
+[
+  {
+    "id": "hcm",
+    "name": "肥厚性心肌病",
+    "organId": "heart",
+    "description": "肥厚性心肌病(HCM)是猫最常见的心脏病，特征是左心室壁非对称性肥厚，导致心室舒张功能障碍。缅因猫、布偶猫等品种有遗传倾向。",
+    "symptoms": ["呼吸困难", "咳嗽", "运动不耐受", "突然昏厥", "后肢瘫痪", "食欲下降"],
+    "normalModelPath": "/models/heart_normal.glb",
+    "diseasedModelPath": "/models/heart_hcm.glb",
+    "treatment": "药物治疗包括β受体阻滞剂、钙通道阻滞剂、利尿剂。定期心脏超声监测。严重病例需氧疗和支持治疗。"
+  },
+  {
+    "id": "ckd",
+    "name": "慢性肾病",
+    "organId": "kidneys",
+    "description": "慢性肾病(CKD)是老年猫最常见的疾病之一，特征是肾脏结构和功能进行性不可逆损伤。根据严重程度分为1-4期。",
+    "symptoms": ["多饮多尿", "食欲下降", "体重减轻", "呕吐", "口腔溃疡", "脱水"],
+    "normalModelPath": "/models/kidney_normal.glb",
+    "diseasedModelPath": "/models/kidney_ckd.glb",
+    "treatment": "处方肾病粮、液体疗法、磷酸盐结合剂、促红细胞生成素、血压控制。定期监测肾功能。"
+  },
+  {
+    "id": "feline_asthma",
+    "name": "猫哮喘",
+    "organId": "lungs",
+    "description": "猫哮喘是由过敏原引起的慢性呼吸道炎症，导致支气管收缩和黏液分泌增多。类似人类的过敏性哮喘。",
+    "symptoms": ["阵发性咳嗽", "喘息", "呼吸困难", "张口呼吸", "呼吸急促"],
+    "normalModelPath": "/models/lung_normal.glb",
+    "diseasedModelPath": "/models/lung_asthma.glb",
+    "treatment": "糖皮质激素吸入剂、支气管扩张剂、避免接触过敏原。严重急性发作需急诊处理。"
+  },
+  {
+    "id": "hepatic_lipidosis",
+    "name": "脂肪肝",
+    "organId": "liver",
+    "description": "猫脂肪肝是最常见的肝脏疾病，常发生于肥胖猫绝食3-5天后。脂肪在肝细胞内异常积聚，导致肝功能障碍。",
+    "symptoms": ["食欲废绝", "黄疸", "呕吐", "精神沉郁", "体重快速下降"],
+    "normalModelPath": "/models/liver_normal.glb",
+    "diseasedModelPath": "/models/liver_lipidosis.glb",
+    "treatment": "强制营养支持(鼻饲管或食道饲管)、保肝药物、维生素补充。治疗周期通常4-6周。"
+  },
+  {
+    "id": "flutd",
+    "name": "猫下泌尿道疾病",
+    "organId": "bladder",
+    "description": "FLUTD是一组影响膀胱和尿道的疾病，包括特发性膀胱炎、尿结石、尿道栓塞。公猫因尿道细长更易发生尿道阻塞。",
+    "symptoms": ["排尿困难", "血尿", "尿频", "尿淋漓", "在猫砂盆外排尿", "舔舐生殖器"],
+    "normalModelPath": "/models/bladder_normal.glb",
+    "diseasedModelPath": "/models/bladder_flutd.glb",
+    "treatment": "尿道阻塞需紧急导尿。增加饮水、处方粮、镇痛剂、膀胱粘膜保护剂。酸化或碱化尿液根据结石类型。"
+  },
+  {
+    "id": "gdv",
+    "name": "胃扩张扭转",
+    "organId": "stomach",
+    "description": "胃扩张扭转(GDV)是危及生命的急症，胃内积气扩张并沿肠系膜轴扭转，导致胃壁缺血和休克。",
+    "symptoms": ["腹部膨胀", "剧烈干呕", "腹痛", "呼吸急促", "黏膜苍白", "虚脱"],
+    "normalModelPath": "/models/stomach_normal.glb",
+    "diseasedModelPath": "/models/stomach_gdv.glb",
+    "treatment": "紧急抗休克治疗后立即手术。胃复位并固定(胃固定术)防止复发。"
+  },
+  {
+    "id": "ivdd",
+    "name": "椎间盘突出",
+    "organId": "spine",
+    "description": "椎间盘疾病(IVDD)是指椎间盘退变、突出，压迫脊髓或神经根。短腿品种如曼基康猫易患。",
+    "symptoms": ["背部疼痛", "步态不稳", "后肢无力", "瘫痪", "尿便失禁", "不愿活动"],
+    "normalModelPath": "/models/spine_normal.glb",
+    "diseasedModelPath": "/models/spine_ivdd.glb",
+    "treatment": "轻度病例保守治疗： Cage rest、抗炎药、止痛药。严重瘫痪需手术减压。康复理疗。"
+  },
+  {
+    "id": "dental",
+    "name": "牙周病",
+    "organId": "skull",
+    "description": "牙周病是猫最常见的口腔疾病，由牙菌斑积聚引起牙龈炎症，可进展为牙周组织破坏和牙齿脱落。",
+    "symptoms": ["口臭", "牙龈红肿", "进食困难", "牙齿松动", "流涎", "用一侧咀嚼"],
+    "normalModelPath": "/models/skull_normal.glb",
+    "diseasedModelPath": "/models/skull_dental.glb",
+    "treatment": "专业洁牙、抛光、拔牙(严重松动牙齿)。日常刷牙、牙科饮食、口腔漱口水。定期口腔检查。"
+  }
+]
