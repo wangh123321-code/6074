@@ -106,3 +106,7 @@ export const useAnatomyStore = create<AnatomyState & AnatomyActions>((set) => ({
 
   clearCutPlanes: () => set({ cutPlanes: [] }),
 }));
+
+if (typeof window !== 'undefined') {
+  (window as any).__anatomyStore = useAnatomyStore;
+}
